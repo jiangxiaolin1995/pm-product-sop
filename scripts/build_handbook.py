@@ -78,7 +78,7 @@ def build(sop, template):
     for char, escaped in (("<", "\\u003c"), (">", "\\u003e"), ("&", "\\u0026"),
                           ("\u2028", "\\u2028"), ("\u2029", "\\u2029")):
         data = data.replace(char, escaped)
-    version = re.search(r"版本：([^\s]+)", sop)
+    version = re.search(r"版本：([^\s\\]+)", sop)
     updated = re.search(r"更新日期：([0-9-]+)", sop)
     replacements = {
         "@@STYLES@@": (ROOT / "assets" / "handbook.css").read_text(encoding="utf-8"),

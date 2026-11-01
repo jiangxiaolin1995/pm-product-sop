@@ -44,6 +44,18 @@ class HandbookTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertFalse(output.exists())
 
+    def test_equivalent_markdown_line_breaks_preserve_version_metadata(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "spaces").mkdir()
+            (root / "explicit").mkdir()
+            sop = "# SOP\n\n版本：1.1  \n更新日期：2026-11-01\n"
+            first, a = self.build(root / "spaces", sop, "# 模板\n")
+            second, b = self.build(root / "explicit", sop.replace("  \n", "\\\n"), "# 模板\n")
+            self.assertEqual(first.returncode, 0, first.stderr)
+            self.assertEqual(second.returncode, 0, second.stderr)
+            self.assertEqual(a.read_text(), b.read_text())
+
 
 if __name__ == "__main__":
     unittest.main()
