@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>产品经理 SOP · 从需求到复盘</title>
+  <meta name="description" content="产品经理与 AI 协作的八步工作流程，包含 Skill 调用、交付标准和可复用需求推进模板。">
+  <style>@@STYLES@@</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <button id="nav-backdrop" type="button" aria-label="关闭目录" hidden></button>
+  <aside id="sidebar" aria-label="文档目录">
+    <a class="brand" href="#sop"><span class="brand-mark" aria-hidden="true">P<span>M</span></span><span>产品经理工作手册<small>需求 · 方案 · 交付 · 复盘</small></span></a>
+    <div class="sidebar-label">阅读目录 <button id="close-nav" type="button" aria-label="关闭目录">×</button></div>
+    <nav id="sop-toc" aria-label="SOP 目录">@@SOP_NAV@@</nav>
+    <nav id="template-toc" aria-label="模板目录" hidden>@@TEMPLATE_NAV@@</nav>
+    <div class="sidebar-footer"><span class="status-dot" aria-hidden="true"></span>离线阅读与交付<small>V@@VERSION@@ · @@UPDATED@@</small></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar ui-only">
+      <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="sidebar">☰ 目录</button>
+      <div class="tabs" role="tablist" aria-label="选择文档">
+        <button id="tab-sop" role="tab" aria-selected="true" aria-controls="panel-sop" tabindex="0" data-panel="sop">SOP 手册</button>
+        <button id="tab-template" role="tab" aria-selected="false" aria-controls="panel-template" tabindex="-1" data-panel="template">需求推进模板</button>
+      </div>
+      <button class="quiet-button print-button" type="button" data-print>打印 / 存为 PDF</button>
+    </header>
+    <main id="main" tabindex="-1">
+      <section id="panel-sop" class="document-panel" role="tabpanel" aria-labelledby="tab-sop" tabindex="0">
+        <header class="document-cover">
+          <div class="eyebrow"><span>PRODUCT WORKFLOW</span><span>V@@VERSION@@</span></div>
+          <h1>产品经理 SOP</h1>
+          <p class="cover-lead">从一个需求出发，<br class="mobile-break">把判断、方案和交付接起来。</p>
+          <p class="cover-note">给产品经理与 AI 的协作手册。明确每一步怎么做、何时调用 Skill，以及用什么证据进入下一步。</p>
+          <div class="cover-meta"><span>八个工作环节</span><span>两个专项 Skill</span><span>一份持续更新的记录</span></div>
+        </header>
+        <section class="workflow-overview ui-only" aria-labelledby="overview-title">
+          <div class="section-kicker"><h2 id="overview-title">先判断，这次走多远</h2><span>按影响与不确定性选择</span></div>
+          <div class="mode-buttons" role="group" aria-label="流程阅读提示">
+            <button type="button" data-mode="quick" aria-pressed="false">快速流程</button>
+            <button type="button" data-mode="standard" aria-pressed="true">标准流程</button>
+            <button type="button" data-mode="explore" aria-pressed="false">探索流程</button>
+          </div>
+          <p id="mode-description" aria-live="polite">适合新功能、跨页面流程和业务规则调整。沿八步推进，已有材料直接复用。</p>
+          <div class="roadmap" aria-label="八步流程，点击进入对应操作">@@ROADMAP@@</div>
+          <p class="overview-note">高亮表示阅读重点；实际执行可从当前阶段接入，正文始终完整保留。</p>
+        </section>
+        <article id="sop-content" class="markdown-body">@@SOP_BODY@@</article>
+        <div class="next-document ui-only"><div><span>开始使用</span><strong>为下一个需求，准备一份推进记录。</strong></div><a class="primary-button" href="#template">查看需求模板 <span aria-hidden="true">→</span></a></div>
+      </section>
+      <section id="panel-template" class="document-panel" role="tabpanel" aria-labelledby="tab-template" tabindex="0" hidden>
+        <header class="document-cover template-cover">
+          <div class="eyebrow"><span>WORKING DOCUMENT</span><span>可复用模板</span></div>
+          <h1>需求推进模板</h1>
+          <p class="cover-lead">一份记录，从需求收口用到效果复盘。</p>
+          <p class="cover-note">先填当前摘要与需求简报，后面的内容随工作补齐。已有原型和分析用链接引用。</p>
+          <div class="template-actions ui-only"><button class="primary-button" type="button" data-download-template>下载 Markdown 模板 <span aria-hidden="true">↓</span></button><button class="outline-button" type="button" data-copy-template>复制完整模板</button></div>
+          <p class="template-hint">文件命名建议：项目名-需求名-推进记录.md</p>
+        </header>
+        <article id="template-content" class="markdown-body">@@TEMPLATE_BODY@@</article>
+      </section>
+      <footer class="page-footer"><span>产品经理 SOP · V@@VERSION@@</span><span>更新于 @@UPDATED@@</span></footer>
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript><style>[hidden]{display:block!important}.ui-only,#sidebar,#nav-backdrop{display:none!important}.workspace{margin:0!important}</style><p>完整 SOP 与模板可直接阅读；下载与复制按钮需要启用 JavaScript。</p></noscript>
+  <script id="document-data" type="application/json">@@DATA@@</script>
+  <script>@@SCRIPT@@</script>
+</body>
+</html>

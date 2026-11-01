@@ -1,0 +1,7 @@
+interface:
+  display_name: "产品经理 SOP"
+  short_description: "按需求阶段调度路径分析与交互原型，并持续维护需求推进记录"
+  default_prompt: "使用 $pm-product-sop 推进这个产品需求，复用已有资料，按当前阶段调用合适的 Skill，并维护同一份需求推进记录。"
+
+policy:
+  allow_implicit_invocation: true
